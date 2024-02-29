@@ -87,6 +87,8 @@ HOME_URL=http://localhost:3000/
 
 Visit the mystical [Google Developer Console](https://console.developers.google.com/) and create OAuth 2.0 credentials. Remember, your secret base is `http://localhost:3000/auth/google/callback`.
 
+Authorised JavaScript origins : http://localhost:3000
+Authorised redirect URIs : http://localhost:3000/auth/google/callback
 
 
 ## 🔑 Enchanted Keys
