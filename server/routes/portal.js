@@ -26,6 +26,8 @@ router.get('/user/password-reset/:id/:token', portalController.password_reset_ve
 
 router.post('/user/password-reset/:id/:token', portalController.password_reset_verify_post);
 
+router.get('/config', portalController.config_get);
+
 router.get('/auth/google',
   passport.authenticate('google', { 
     scope: ['email', 'profile'] 

@@ -187,6 +187,10 @@ const password_reset_verify_post = async (req, res) => {
   });
 }
 
+const config_get = async (req, res) => {
+  res.json({ BORDER_COLOR: process.env.PORTAL_FIELD_BORDER_COLOR });
+}
+
 module.exports = {
   login_get,
   register_get,
@@ -197,5 +201,6 @@ module.exports = {
   password_reset_get,
   password_reset_post,
   password_reset_verify_get,
-  password_reset_verify_post
+  password_reset_verify_post,
+  config_get
 }

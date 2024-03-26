@@ -8,7 +8,7 @@
   <input 
     name="login_email_field" 
     id="login_email_field" 
-    class=" w-full text-sm px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400 pl-6" 
+    class=" w-full text-sm px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-<%= locals.constantsLib.colors.PORTAL_FIELD_BORDER_COLOR %>-400 pl-6" 
     type="" 
     <% if (email) { %>value="<%= email %>"<% } %>
     <% if (emailAction) { %> <%= emailAction %><% } %>

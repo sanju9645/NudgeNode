@@ -1,0 +1,51 @@
+<div
+  class="flex h-screen bg-gray-50 dark:bg-gray-900"
+  :class="{ 'overflow-hidden': isSideMenuOpen }"
+>
+
+<!-- Desktop sidebar -->
+<%- include('./partials/nudge/desktop-sidebar-components.ejs') %>
+
+<!-- Mobile sidebar -->
+<!-- Backdrop -->
+<%- include('./partials/nudge/mobile-sidebar-components.ejs') %>
+
+<div class="flex flex-col flex-1 w-full">
+  <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+    <div class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
+      <!-- Mobile hamburger -->
+      <%- include('./partials/nudge/header/mobile-hamburger.ejs') %>
+      
+      <!-- Search input -->
+      <%- include('./partials/nudge/header/search-input.ejs') %>
+      
+      <ul class="flex items-center flex-shrink-0 space-x-6 ml-auto">
+        <!-- Theme toggler -->
+        <%- include('./partials/nudge/header/theme-toggler.ejs') %>
+        
+        <!-- Notifications menu -->
+        <%- include('./partials/nudge/header/notifications-menu.ejs') %>
+
+        <!-- Profile menu -->
+        <%- include('./partials/nudge/header/profile-menu.ejs') %>
+      </ul>
+    </div>
+  </header>
+
+  <main class="h-full overflow-y-auto">
+    <div class="container px-6 mx-auto grid">
+      <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+        Dashboard
+      </h2>
+      <!-- CTA -->
+      <%- include('./partials/nudge/dashboard-banner.ejs') %>
+
+      <!-- Cards -->
+      <%- include('./partials/nudge/cards.ejs') %>
+
+      <!-- New Table -->
+      <%- include('./partials/nudge/table.ejs') %>
+    </div>
+  </main>
+</div>
+</div>

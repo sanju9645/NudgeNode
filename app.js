@@ -67,6 +67,7 @@ app.set('views', path.join(__dirname, 'views'));
  */
 // app.use(require('./server/routes'));
 app.use('/', require('./server/routes/portal'));
+app.use('/', require('./server/routes/nudge'));
 
 app.use((err, req, res, next) => errorHandler.handle(err, req, res, next));
 
