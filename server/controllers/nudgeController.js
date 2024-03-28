@@ -2,7 +2,8 @@ require('dotenv').config();
 
 const home_get = async (req, res) => {
   UtilsLib.secureExecute(req, res, (req, res) => {
-    const locals = UtilsLib.getNudgeLocals({"title" : "home", 'currentRoute' : '/home'});
+    let locals = UtilsLib.getNudgeLocals({"title" : "home", 'currentRoute' : '/home'});
+    locals = { ...locals, layout: './layouts/backbone' };
 
     res.render('home', locals);
   });
@@ -11,9 +12,10 @@ const home_get = async (req, res) => {
 
 const chat_get = async (req, res) => {
   UtilsLib.secureExecute(req, res, (req, res) => {
-    const locals = UtilsLib.getNudgeLocals({"title" : "chat", 'currentRoute' : '/chat'});
+    let locals = UtilsLib.getNudgeLocals({"title" : "chat", 'currentRoute' : '/chat'});
+    locals = { ...locals, layout: './layouts/chatMarrowMeet' };
 
-    res.render('home', locals);
+    res.render('chat', locals);
   });
 };
 

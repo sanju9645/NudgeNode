@@ -1,0 +1,39 @@
+<body>
+    <div class="lg:flex">
+        <!-- Start left sidebar-menu -->
+        <div class="sidebar-menu w-full lg:w-[75px] shadow lg:flex lg:flex-col flex flex-row justify-between items-center fixed lg:relative z-40 bottom-0 bg-white dark:bg-zinc-600 ">
+            <%- include('./partials/chat/side-menu-nav/brand-box.ejs') %>
+            <%- include('./partials/chat/side-menu-nav/tabs.ejs') %>
+            <%- include('./partials/chat/side-menu-nav/profile.ejs') %>
+        </div>
+        <!-- end left sidebar-menu -->
+
+        <!-- switcher -->
+        <%- include('./partials/chat/switcher.ejs') %>
+        
+        <!-- start chat-leftsidebar -->
+        <div class="chat-leftsidebar lg:w-[380px] group-data-[theme-color=violet]:bg-slate-50 group-data-[theme-color=green]:bg-green-50/20 group-data-[theme-color=red]:bg-red-50/20 shadow overflow-y-hidden mb-[80px] lg:mb-0 group-data-[theme-color=violet]:dark:bg-zinc-700 group-data-[theme-color=green]:dark:bg-zinc-700 group-data-[theme-color=red]:dark:bg-zinc-700">
+            <div>
+                <!-- Start Profile tab-pane -->
+                <%- include('./partials/chat/tabs/profile.ejs') %>
+
+                <!-- Start chat content -->
+                <%- include('./partials/chat/tabs/chats.ejs') %>
+
+                <!-- Start group content -->
+                <%- include('./partials/chat/tabs/groups.ejs') %>
+                
+                <!-- Start contacts content -->
+                <%- include('./partials/chat/tabs/contacts.ejs') %>
+
+                <!-- Start settings content -->
+                <%- include('./partials/chat/tabs/settings.ejs') %>
+            </div>
+        </div>
+        <!-- end chat-leftsidebar -->
+
+        <!-- Start User chat -->
+        <%- include('./partials/chat/chat.ejs') %>
+        <!-- End User chat -->
+    </div>
+</body>
