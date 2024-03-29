@@ -50,4 +50,6 @@ router.get('/auth/google/logout', (req, res) => {
 
 router.get('/logout', portalController.logout);
 
+router.get('/check-token', portalController.check_token);
+
 module.exports = router;

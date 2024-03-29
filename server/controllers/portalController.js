@@ -209,6 +209,13 @@ const logout = async (req, res) => {
   });
 };
 
+const check_token = async (req, res) => {
+  UtilsLib.secureExecute(req, res, (req, res) => {
+    const status = req?.cookies?.token ? true : false;
+    res.status(200).json({ token: status });
+  });
+};
+
 module.exports = {
   login_get,
   register_get,
@@ -221,5 +228,6 @@ module.exports = {
   password_reset_verify_get,
   password_reset_verify_post,
   config_get,
-  logout
+  logout,
+  check_token
 }
