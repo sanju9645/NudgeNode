@@ -25,9 +25,9 @@
       </div>
       <div class="p-6 text-center border-b border-gray-100 dark:border-zinc-600">
           <div class="mb-4">
-              <img src="/img/chat/images/avatar-1.jpg" class="w-24 h-24 p-1 mx-auto border border-gray-100 rounded-full dark:border-zinc-800" alt="">
+              <img src="<%- profilePicture %>" class="w-24 h-24 p-1 mx-auto border border-gray-100 rounded-full dark:border-zinc-800" alt="">
           </div>
-          <h5 class="mb-1 text-16 dark:text-gray-50">Patricia Smith</h5>
+          <h5 class="mb-1 text-16 dark:text-gray-50"> <%- user.name %> </h5>
           <h5 class="mb-0 truncate text-14 ltr:block rtl:hidden">
               <a href="#" class="text-gray-500 dark:text-gray-50">
                   <i class="text-green-500 ltr:ml-1 rtl:mr-1 ri-record-circle-fill text-10 "></i>
@@ -65,11 +65,11 @@
                       <div class="p-5">
                           <div>
                               <p class="mb-1 text-gray-500 dark:text-gray-300">Name</p>
-                              <h5 class="text-sm dark:text-gray-50">Patricia Smith</h5>
+                              <h5 class="text-sm dark:text-gray-50"><%- user.name %></h5>
                           </div>
                           <div class="mt-5">
                               <p class="mb-1 text-gray-500 dark:text-gray-300">Email</p>
-                              <h5 class="text-sm dark:text-gray-50">adc@123.com</h5>
+                              <h5 class="text-sm dark:text-gray-50"><%- user.email %></h5>
                           </div>
                           <div class="mt-5">
                               <p class="mb-1 text-gray-500 dark:text-gray-300">Time</p>

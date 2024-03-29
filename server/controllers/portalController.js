@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const bcrypt = require('bcrypt');
 const jwt    = require('jsonwebtoken');
+const jwtSecret = process.env.JWT_SECRET;
 
 const login_get = async (req, res) => {
   UtilsLib.secureExecute(req, res, (req, res) => {
@@ -46,7 +47,9 @@ const login_post = async (req, res) => {
     const loginResult = await userLib.handleUserLogin(req, res);
 
     if (loginResult.status) {
-      res.send(`<h1>${loginResult.message}</h1>`);
+      const token = jwt.sign({ userId: loginResult.userId}, jwtSecret );
+      res.cookie('token', token, { httpOnly: true });
+      res.redirect('/home');
     } else {
       const status    = false;
       const toastBody = loginResult.message;
@@ -99,8 +102,15 @@ const auth_google_protected_get = (req, res) => {
     });
 
     if (newUser) {
-      await UserModel.updateOne({ _id: newUser._id }, { profilePicture: req.user.profilePhoto });
-      res.send(`Hello ${newUser.name} ${newUser.email}`);
+      const updatedUser = await UserModel.findOneAndUpdate(
+        { _id: newUser._id },
+        { profilePicture: req.user.profilePhoto },
+        { new: true }
+      );
+      // res.send(`Hello ${updatedUser.name} ${updatedUser.email}`);
+      const token = jwt.sign({ userId: updatedUser._id}, jwtSecret );
+      res.cookie('token', token, { httpOnly: true });
+      res.redirect('/home');
     } else {
       res.status(500).render('error', { locals });
     }
@@ -191,6 +201,14 @@ const config_get = async (req, res) => {
   res.json({ BORDER_COLOR: process.env.PORTAL_FIELD_BORDER_COLOR });
 }
 
+const logout = async (req, res) => {
+  UtilsLib.secureExecute(req, res, (req, res) => {
+    res.clearCookie('token');
+    const locals = UtilsLib.fmtAdditionalData({isLoginPage : true}, {status: true, toastBody : constantsLib.loginPagePhrases.LOGOUT_MESSAGE});
+    res.render('index', { locals });
+  });
+};
+
 module.exports = {
   login_get,
   register_get,
@@ -202,5 +220,6 @@ module.exports = {
   password_reset_post,
   password_reset_verify_get,
   password_reset_verify_post,
-  config_get
+  config_get,
+  logout
 }

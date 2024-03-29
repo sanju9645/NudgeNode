@@ -48,4 +48,6 @@ router.get('/auth/google/logout', (req, res) => {
   res.redirect('/');
 });
 
+router.get('/logout', portalController.logout);
+
 module.exports = router;
