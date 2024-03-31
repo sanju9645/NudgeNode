@@ -229,7 +229,7 @@
                   <li class="clear-both py-4">
                       <div class="relative inline-flex items-end mb-6 text-right ltr:rtl:float-left ltr:float-right rtl:float-left">
                           <div class="order-3 mr-0 ltr:ml-4 rtl:mr-4">
-                              <img src="<%- profilePicture %>" alt="" class="rounded-full h-9 w-9">
+                              <img src="<%- currentUser.profilePicture %>" alt="" class="rounded-full h-9 w-9">
                           </div>
                           <div>
                               <div class="flex gap-2 mb-2 ltr:justify-end rtl:justify-start">
@@ -262,7 +262,7 @@
                                       </div>
                                   </div>
                               </div>
-                              <div class="font-medium text-gray-700 rtl:text-left text-14 dark:text-gray-300">Patricia Smith</div>
+                              <div class="font-medium text-gray-700 rtl:text-left text-14 dark:text-gray-300"><%- currentUser.name %></div>
                           </div>
                       </div>
                   </li>
@@ -346,7 +346,7 @@
                   <li class="clear-both py-4">
                       <div class="relative inline-flex items-end mb-6 text-right ltr:rtl:float-left ltr:float-right rtl:float-left">
                           <div class="order-3 mr-0 ltr:ml-4 rtl:mr-4">
-                              <img src="<%- profilePicture %>" alt="" class="rounded-full h-9 w-9">
+                              <img src="<%- currentUser.profilePicture %>" alt="" class="rounded-full h-9 w-9">
                           </div>
                           <div>
                               <div class="flex gap-2 mb-2 ltr:justify-end rtl:justify-start">
@@ -379,7 +379,7 @@
                                       </div>
                                   </div>
                               </div>
-                              <div class="font-medium text-gray-700 rtl:text-left text-14 dark:text-gray-300">Patricia Smith</div>
+                              <div class="font-medium text-gray-700 rtl:text-left text-14 dark:text-gray-300"><%- currentUser.name %></div>
                           </div>
                       </div>
                   </li>
@@ -496,7 +496,7 @@
                   <li class="clear-both py-4">
                       <div class="relative inline-flex items-end mb-6 text-right ltr:rtl:float-left ltr:float-right rtl:float-left">
                           <div class="order-3 mr-0 ltr:ml-4 rtl:mr-4">
-                              <img src="<%- profilePicture %>" alt="" class="rounded-full h-9 w-9">
+                              <img src="<%- currentUser.profilePicture %>" alt="" class="rounded-full h-9 w-9">
                           </div>
                           <div>
                               <div class="flex justify-end gap-2 mb-2">
@@ -562,7 +562,7 @@
                                       </div>
                                   </div>
                               </div>
-                              <div class="font-medium text-gray-700 rtl:text-left text-14 dark:text-gray-300">Patricia Smith</div>
+                              <div class="font-medium text-gray-700 rtl:text-left text-14 dark:text-gray-300"><%- currentUser.name %></div>
                           </div>
                       </div>
                   </li>
@@ -644,7 +644,7 @@
           </div>
           <div class="p-6 text-center border-b border-gray-100 dark:border-zinc-600">
               <div class="mb-4">
-                  <img src="<%- profilePicture %>" class="w-24 h-24 p-1 mx-auto border border-gray-100 rounded-full dark:border-zinc-800" alt="">
+                  <img src="<%- currentUser.profilePicture %>" class="w-24 h-24 p-1 mx-auto border border-gray-100 rounded-full dark:border-zinc-800" alt="">
               </div>
               <h5 class="mb-1 text-16 dark:text-gray-50">Doris Brown</h5>
               <h5 class="mb-0 truncate text-14 ltr:block rtl:hidden">
@@ -684,11 +684,11 @@
                           <div class="p-5">
                               <div>
                                   <p class="mb-1 text-gray-500 dark:text-gray-300">Name</p>
-                                  <h5 class="text-sm dark:text-gray-50">Doris Brown</h5>
+                                  <h5 class="text-sm dark:text-gray-50"><%- currentUser.name %></h5>
                               </div>
                               <div class="mt-5">
                                   <p class="mb-1 text-gray-500 dark:text-gray-300">Email</p>
-                                  <h5 class="text-sm dark:text-gray-50">adc@123.com</h5>
+                                  <h5 class="text-sm dark:text-gray-50"><%- currentUser.email %></h5>
                               </div>
                               <div class="mt-5">
                                   <p class="mb-1 text-gray-500 dark:text-gray-300">Time</p>
