@@ -1,7 +1,7 @@
 <% if (user?.profilePicture) { %>
-  <img src="<%- currentUser.profilePicture %>" alt="" style="margin: 5px;" class="p-1 rounded-full h-10 w-10 flex justify-center items-center mx-auto bg-gray-50 dark:bg-zinc-700">
+  <img src="<%- user.profilePicture %>" alt="" style="margin: 5px;" class="p-1 rounded-full h-10 w-10 flex justify-center items-center mx-auto bg-gray-50 dark:bg-zinc-700">
 <% } else { %>
-  <div style="background-color: rgb(168 162 158) !important; margin: 5px;" class="p-1 rounded-full h-10 w-10 flex justify-center items-center text-gray-700 dark:text-gray-50 leading-none">
+  <div style="background-color: rgb(168 162 158) !important; margin: 5px;" class="p-1 rounded-full h-9 w-9 flex justify-center items-center text-gray-700 dark:text-gray-50 leading-none">
     <%= user.name.substring(0, 2).toUpperCase() %>
   </div>
 <% } %>

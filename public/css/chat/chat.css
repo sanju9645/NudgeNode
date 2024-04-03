@@ -1,0 +1,23 @@
+/* Styles for active heartbeat contact in red theme */
+[data-theme-color=red] .hearbeat-contact.active {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(254 220 219 / var(--tw-bg-opacity));
+}
+
+/* Styles for active heartbeat contact in violet theme */
+[data-theme-color=violet] .hearbeat-contact.active {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(230 235 245 / var(--tw-bg-opacity)) !important;
+}
+
+/* Styles for active heartbeat contact in green theme */
+[data-theme-color=green] .hearbeat-contact.active {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(202 237 223 / var(--tw-bg-opacity)) !important;
+}
+
+/* Styles for active heartbeat contact with dark mode enabled */
+:is([data-mode=dark] .hearbeat-contact.active) {
+  --tw-bg-opacity: 1 !important;
+  background-color: #36404a !important;
+}

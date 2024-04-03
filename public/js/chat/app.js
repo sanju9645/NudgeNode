@@ -200,6 +200,16 @@ tabButtons.forEach((button, index) => {
   });
 });
 
+//
+// heartbeat
+//
+const hearbeatContacts = document.querySelectorAll('.hearbeat-contact');
+hearbeatContacts.forEach((contact, index) => {
+  contact.addEventListener('click', () => {
+    hearbeatContacts.forEach(cnt => cnt.classList.remove('active'));
+    contact.classList.add('active');
+  });
+});
 
 (function () {
 

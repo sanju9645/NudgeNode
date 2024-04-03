@@ -17,8 +17,9 @@ const chat_get = async (req, res) => {
     user['profilePicture'] = await authLib.getProfilePicture(req);
 
     const groupedNames = await userLib.getUsersName(); 
+    const heartbeats = await heartbeatOps.heartbeatsByUserId(user._id);
 
-    locals = { ...locals, currentUser : user, groupedNames, layout: './layouts/chatMarrowMeet' };
+    locals = { ...locals, currentUser : user, groupedNames, heartbeats, layout: './layouts/chatMarrowMeet' };
     res.render('chat', locals);
   });
 };
