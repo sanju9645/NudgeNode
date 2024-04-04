@@ -18,8 +18,7 @@ const chat_get = async (req, res) => {
 
     const groupedNames = await userLib.getUsersName(); 
     const heartbeats = await heartbeatOps.heartbeatsByUserId(user._id);
-
-    locals = { ...locals, currentUser : user, groupedNames, heartbeats, layout: './layouts/chatMarrowMeet' };
+    locals = { ...locals, currentUser : user, groupedNames, heartbeats, req, layout: './layouts/chatMarrowMeet' };
     res.render('chat', locals);
   });
 };

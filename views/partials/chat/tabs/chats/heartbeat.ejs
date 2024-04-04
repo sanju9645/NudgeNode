@@ -1,21 +1,20 @@
 <li class="unread hearbeat-contact px-5 py-[15px] group-data-[theme-color=violet]:hover:bg-slate-100 group-data-[theme-color=green]:hover:bg-green-50/50 group-data-[theme-color=red]:hover:bg-red-50/50 transition-all ease-in-out border-b border-white/20 dark:border-zinc-700 group-data-[theme-color=violet]:dark:hover:bg-zinc-600 group-data-[theme-color=green]:dark:hover:bg-zinc-600 group-data-[theme-color=red]:dark:hover:bg-zinc-600 dark:hover:border-zinc-700">
     <a href="#<%= heartbeat.identifier %>">
-      <div class="relative flex">
-          <div class="relative self-center ltr:mr-3 rtl:ml-3">
-              <%- include('../../../components/profile-pic.ejs', {user: heartbeat}) %>
-              <!-- <span class="absolute w-2.5 h-2.5 bg-yellow-500 border-2 border-white rounded-full top-7 ltr:right-1 rtl:left-1 dark:border-zinc-600"></span> -->
-          </div>
-          <div class="flex-grow overflow-hidden">
-              <h5 class="mb-1 text-base truncate dark:text-gray-50"><%= heartbeat.name %></h5>
-              <p class="mb-0 text-gray-800 truncate dark:text-gray-300 text-14">
-                  <i class="align-middle ri-image-fill me-1 ms-0"></i>
-                  Images
-              </p>
-          </div>
-          <div class="text-gray-500 text-11 dark:text-gray-300">12 min</div>
-          <div class="absolute bottom-0 ltr:right-0 rtl:left-0">
-              <span class="px-2 py-1 text-red-500 rounded-full bg-red-500/20 text-11">02</span>
-          </div>
-      </div>
-  </a>
+        <div class="relative flex">
+            <div class="relative self-center ltr:mr-3 rtl:ml-3">
+                <%- include('../../../components/profile-pic.ejs', {user: heartbeat}) %>
+                <!-- <span class="absolute w-2.5 h-2.5 bg-yellow-500 border-2 border-white rounded-full top-7 ltr:right-1 rtl:left-1 dark:border-zinc-600"></span> -->
+            </div>
+            <div class="flex-grow overflow-hidden">
+                <h5 class="mb-1 text-base truncate dark:text-gray-50"><%= heartbeat.name %></h5>
+                <p class="mb-0 text-gray-800 truncate dark:text-gray-300 text-14">
+                    <i class="align-middle ri-image-fill me-1 ms-0"></i> Images
+                </p>
+            </div>
+            <div class="text-gray-500 text-11 dark:text-gray-300">12 min</div>
+            <div class="absolute bottom-0 ltr:right-0 rtl:left-0">
+                <span class="px-2 py-1 text-red-500 rounded-full bg-red-500/20 text-11">02</span>
+            </div>
+        </div>
+    </a>
 </li>

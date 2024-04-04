@@ -19,5 +19,5 @@
 /* Styles for active heartbeat contact with dark mode enabled */
 :is([data-mode=dark] .hearbeat-contact.active) {
   --tw-bg-opacity: 1 !important;
-  background-color: #36404a !important;
+  background-color: #272e35 !important;
 }
