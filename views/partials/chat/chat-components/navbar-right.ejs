@@ -1,0 +1,30 @@
+<div class="col-span-4 sm:col-span-8">
+  <ul class="flex items-center justify-end lg:gap-4">
+
+    <li class="px-3">
+      <div class="relative dropstart">
+        <button class="p-0 text-xl text-gray-500 border-0 btn dropdown-toggle dark:text-gray-300" type="button" data-bs-toggle="dropdown" id="dropdownMenuButton10" data-tw-auto-close="outside">
+          <i class="ri-search-line"></i>
+        </button>
+        <ul class="absolute z-50 hidden mt-2 text-left list-none bg-white border rounded-lg shadow-lg w-fit border-gray-50 dropdown-menu top-8 dark:bg-zinc-700 bg-clip-padding dark:border-gray-700" aria-labelledby="dropdownMenuButton10">
+          <li class="p-2">
+            <input type="text" class="text-gray-500 border-0 rounded bg-gray-50 placeholder:text-14 text-14 dark:bg-zinc-600 dark:text-gray-300 placeholder:dark:text-gray-300 focus:ring-0" placeholder="Search..">
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <%- include('./audio-call-modal.ejs') %>
+
+    <%- include('./video-call-modal.ejs') %>
+
+    <li class="px-3">
+      <a href="#" class="hidden text-gray-500 dark:text-gray-300 lg:block profileTab">
+        <i class="text-xl ri-group-line"></i>
+      </a>
+    </li>
+
+    <%- include('./extras.ejs') %>
+
+  </ul>
+</div>

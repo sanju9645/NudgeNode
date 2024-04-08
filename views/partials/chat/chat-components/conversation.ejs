@@ -1,0 +1,33 @@
+<div class="h-[80vh] p-4 lg:p-6" data-simplebar>
+    <ul class="mb-0">
+        <% let currentDate = null; %>
+        <% const today = new Date(); %>
+        <% const todayFormatted = today.toISOString().split('T')[0]; %>
+
+        <% messages.forEach(message => { %>
+            <% const messageDate = new Date(message.created); %>
+            <% const formattedDate = messageDate.toISOString().split('T')[0]; %>
+            <% console.log(formattedDate); %>
+
+            <% if (currentDate != formattedDate) { %>
+                <% currentDate = formattedDate %>
+                <% let date = currentDate; %>
+
+                <% if (currentDate == todayFormatted) { %>
+                    <% date = 'Today'; %>
+                <% } %>
+
+                <%- include('./conversation/date.ejs', {date}) %>
+            <% } %>
+
+            <% if (message.senderId.toString() == currentUser._id.toString()) { %>
+                <%- include('./conversation/own-message.ejs', {message}) %>
+            <% } else { %>
+                <%- include('./conversation/recipient-message.ejs', {message}) %>
+            <% } %>
+        <% }); %>
+
+
+        <%- include('./conversation/typing.ejs', {message}) %>
+    </ul>
+</div>

@@ -16,6 +16,14 @@ const messageSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
+  identifier: {
+    type: String,
+    default: function() {
+      const senderIdNum = parseInt(this.senderId.toString().match(/\d+/g).join(""), 10); 
+      const recipientNum = parseInt(this.recipientId.toString().match(/\d+/g).join(""), 10);
+      return Math.min(senderIdNum, recipientNum) + "" + Math.max(senderIdNum, recipientNum);
+    }
+  },
   status: {
     type: String,
     enum: ['send', 'received', 'read'],
