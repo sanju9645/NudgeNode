@@ -1,7 +1,7 @@
 <li class="clear-both py-4">
   <div class="flex items-end gap-3">
       <div>
-          <img src="<%- message.senderProfilePicture %>" alt="" class="rounded-full h-9 w-9">
+          <%- include(UtilsLib.actualEjsPath('components/profile-pic'), {user: {profilePicture: hearbeatUser.recipientProfilePicture, name: hearbeatUser.recipientName}}) %>
       </div>
       <div>
           <div class="flex gap-2 mb-2">

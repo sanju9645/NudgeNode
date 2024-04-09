@@ -1,7 +1,7 @@
 <li class="clear-both py-4">
   <div class="relative inline-flex items-end mb-6 text-right ltr:rtl:float-left ltr:float-right rtl:float-left">
       <div class="order-3 mr-0 ltr:ml-4 rtl:mr-4">
-          <img src="<%- message.senderProfilePicture %>" alt="" class="rounded-full h-9 w-9">
+          <%- include(UtilsLib.actualEjsPath('components/profile-pic'), {user: currentUser}) %>
       </div>
       <div>
           <div class="flex gap-2 mb-2 ltr:justify-end rtl:justify-start">

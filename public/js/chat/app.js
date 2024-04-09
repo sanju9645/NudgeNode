@@ -348,6 +348,18 @@ if (profileTabBtn) {
 if (document.querySelector(".chat-user-list")) {
   Array.from(document.querySelectorAll(".chat-user-list li")).forEach((item) => {
     item.addEventListener("click", () => {
+      const identifier = item.dataset.identifier;
+
+       // Call the API with the userId
+       fetch(`/api/chat/${identifier}`)
+       .then(response => response.text())
+       .then(data => {
+         document.getElementById('heartbeat-chat-content').innerHTML = data;
+       })
+       .catch(error => {
+         console.error('API Error:', error);
+       });
+      
       if (document.querySelector(".user-chat")) {
         document.querySelector(".user-chat").classList.add("user-chat-show");
       }

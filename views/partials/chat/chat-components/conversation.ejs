@@ -1,5 +1,13 @@
-<div class="h-[80vh] p-4 lg:p-6" data-simplebar>
-    <ul class="mb-0">
+<div class="p-4 border-b border-gray-100 lg:p-6 dark:border-zinc-600">
+    <div class="grid items-center grid-cols-12">
+        <%- include('./navbar-left.ejs', {hearbeatUser}) %>
+        <%- include('./navbar-right.ejs', {hearbeatUser}) %>
+    </div>
+</div>
+<!-- end chat user head -->
+
+<div class="h-[80vh] p-4 lg:p-6" id="chat-parent-div-wrapper" data-simplebar>
+    <ul class="mb-0" id="chat-parent-ul-wrapper">
         <% let currentDate = null; %>
         <% const today = new Date(); %>
         <% const todayFormatted = today.toISOString().split('T')[0]; %>
@@ -7,7 +15,6 @@
         <% messages.forEach(message => { %>
             <% const messageDate = new Date(message.created); %>
             <% const formattedDate = messageDate.toISOString().split('T')[0]; %>
-            <% console.log(formattedDate); %>
 
             <% if (currentDate != formattedDate) { %>
                 <% currentDate = formattedDate %>
@@ -21,13 +28,17 @@
             <% } %>
 
             <% if (message.senderId.toString() == currentUser._id.toString()) { %>
-                <%- include('./conversation/own-message.ejs', {message}) %>
+                <%- include('./conversation/own-message.ejs', {message, hearbeatUser}) %>
             <% } else { %>
-                <%- include('./conversation/recipient-message.ejs', {message}) %>
+                <%- include('./conversation/recipient-message.ejs', {message, hearbeatUser}) %>
             <% } %>
         <% }); %>
 
 
-        <%- include('./conversation/typing.ejs', {message}) %>
+        <%- include('./conversation/typing.ejs', {hearbeatUser}) %>
     </ul>
 </div>
+
+<!-- start chat input section -->
+<%- include('./chat-input-section.ejs') %>
+<!-- end chat input section -->

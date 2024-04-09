@@ -2,19 +2,19 @@
     <div class="lg:flex">
         <!-- start chat conversation section -->
         <div class="relative w-full overflow-hidden ">
-            <div class="p-4 border-b border-gray-100 lg:p-6 dark:border-zinc-600">
-                <div class="grid items-center grid-cols-12">
-                    <%- include('./chat-components/navbar-left.ejs') %>
-                    <%- include('./chat-components/navbar-right.ejs') %>
-                </div>
+            <div id="heartbeat-chat-content">
+                <div class="relative flex justify-center items-center w-full h-full" style="margin-top: 30% !important;">
+                    <% const joke = UtilsLib.getAJoke().body; %>
+                    <div class="flex text-center">
+                        <h2 class="text-gray-700 dark:text-gray-50 italic font-bold default-chat-page-quote text-3xl">
+                            ``` <%= joke; %> ```
+                        </h2>
+                    </div>
+                </div>                
             </div>
-            <!-- end chat user head -->
-            
-
-            <!-- start chat input section -->
-            <%- include('./chat-components/chat-input-section.ejs') %>
-            <!-- end chat input section -->
         </div>
+
+        <%- include('./chat-components/default-chat.ejs') %>
         <!-- end chat conversation section -->
 
         <!-- start User profile detail sidebar -->

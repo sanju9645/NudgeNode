@@ -6,16 +6,16 @@
         </a>
     </div>
     <div class="rtl:ml-3 ltr:mr-3">
-        <img src="/img/chat/images/avatar-4.jpg" class="rounded-full h-9 w-9" alt="">
+        <%- include(UtilsLib.actualEjsPath('components/profile-pic'), {user: {profilePicture: hearbeatUser.recipientProfilePicture, name: hearbeatUser.recipientName}}) %>
     </div>
     <div class="flex-grow overflow-hidden">
         <h5 class="mb-0 truncate text-16 ltr:block rtl:hidden">
-            <a href="#" class="text-gray-800 dark:text-gray-50">Doris Brown</a>
+            <a href="#" class="text-gray-800 dark:text-gray-50"><%- hearbeatUser.recipientName %></a>
             <i class="text-green-500 ltr:ml-1 rtl:mr-1 ri-record-circle-fill text-10 "></i>
         </h5>
         <h5 class="mb-0 truncate text-16 rtl:block ltr:hidden">
             <i class="text-green-500 ltr:ml-1 rtl:mr-1 ri-record-circle-fill text-10 "></i>
-            <a href="#" class="text-gray-800 dark:text-gray-50">Doris Brown</a>
+            <a href="#" class="text-gray-800 dark:text-gray-50"><%- hearbeatUser.recipientName %></a>
         </h5>
     </div>
   </div>

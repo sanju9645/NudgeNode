@@ -1,0 +1,8 @@
+:root {
+  --cursive: cursive;
+  --serif: serif;
+}
+
+.default-chat-page-quote {
+  font-family: var(--cursive);
+}
