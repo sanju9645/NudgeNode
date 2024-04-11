@@ -6,15 +6,19 @@
                 <div class="relative flex justify-center items-center w-full h-full" style="margin-top: 30% !important;">
                     <% const joke = UtilsLib.getAJoke().body; %>
                     <div class="flex text-center">
-                        <h2 class="text-gray-700 dark:text-gray-50 italic font-bold default-chat-page-quote text-3xl">
-                            ``` <%= joke; %> ```
+                        <img src="/img/chat/chat-default.png" class="ml-5 mr-5" width="160" height="160">
+                        <h2 class="italic font-bold default-chat-page-quote text-3xl p-5 mr-5">
+                            <span class="text-gray-700 dark:text-gray-50">
+                                ```<%= joke.substring(0, Math.ceil(joke.length / 2)).trim(); %> 
+                            </span>
+                            <span class="group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=red]:text-red-500">
+                                <%= joke.substring(Math.ceil(joke.length / 2)).trim(); %>```
+                            </span>
                         </h2>
                     </div>
                 </div>                
             </div>
         </div>
-
-        <%- include('./chat-components/default-chat.ejs') %>
         <!-- end chat conversation section -->
 
         <!-- start User profile detail sidebar -->

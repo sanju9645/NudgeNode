@@ -1,7 +1,12 @@
 <div class="z-40 w-full p-6 mb-0 bg-white border-t lg:mb-1 border-gray-50 dark:bg-zinc-800 dark:border-zinc-700">
   <div class="flex gap-2">
       <div class="flex-grow">
-          <input type="text" class="w-full border-transparent rounded bg-gray-50 placeholder:text-14 text-14 dark:bg-zinc-700 dark:placeholder:text-gray-300 dark:text-gray-300" placeholder="Enter Message...">
+          <input 
+            id="send-message-input" 
+            type="text" 
+            class="w-full border-transparent rounded bg-gray-50 placeholder:text-14 text-14 dark:bg-zinc-700 dark:placeholder:text-gray-300 dark:text-gray-300" 
+            placeholder="Enter Message..."
+            >
       </div>
       <div>
           <div>
@@ -25,7 +30,16 @@
                       </button>
                   </li>
                   <li class="inline-block">
-                      <button type="submit" class="text-white border-transparent btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=violet]:hover:bg-violet-600 group-data-[theme-color=green]:hover:bg-green-600">
+                      <% const senderId = currentUser._id; %>
+                      <% const recipientId = hearbeatUser.recipientId; %>
+                      <% const identifier = hearbeatUser.heartbeatIdentifier; %>
+
+                      <button 
+                        id="send-message-btn" 
+                        onclick="sendMessage('<%- senderId %>', '<%- recipientId %>', '<%- identifier %>', document.getElementById('send-message-input').value)" 
+                        type="submit" 
+                        class="text-white border-transparent btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=violet]:hover:bg-violet-600 group-data-[theme-color=green]:hover:bg-green-600"
+                        >
                           <i class="ri-send-plane-2-fill"></i>
                       </button>
                   </li>

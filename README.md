@@ -110,3 +110,89 @@ EXPRESS_SESSION_SECRET={give a strong secret here}
 
 JWT_SECRET={give a strong secret here}
 ```
+
+
+
+Firbase 
+https://firebase.google.com/?authuser=1
+
+Select 'Add Firebase to your web app'
+
+Initialize Firebase on your web app:
+Include the Firebase JavaScript SDK in your HTML file.
+Initialize Firebase with the project configuration snippet.
+
+Then go to cloud messaging for web
+https://firebase.google.com/docs/cloud-messaging/js/client?authuser=1&hl=en
+
+Add and initialize the FCM SDK
+Add this to the html code 'const messaging = getMessaging(app);'
+
+Also import getMessaging like, 
+        import { getMessaging } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-messaging.js";
+
+Configure Web Credentials with FCM
+Generate a new key pair
+
+Goto project console
+Goto project settings
+Select Cloud Messaging
+
+
+
+On 'Web configuration', under 'Web Push certificates' click 'Generate key pair'
+
+Copy the key pair
+
+
+
+
+
+Add the following to the html,
+
+getToken(messaging, { vapidKey: '<YOUR_PUBLIC_VAPID_KEY_HERE>' }).then((currentToken) => {
+  if (currentToken) {
+    // Send the token to your server and update the UI if necessary
+    // ...
+  } else {
+    // Show permission request UI
+    console.log('No registration token available. Request permission to generate one.');
+    // ...
+  }
+}).catch((err) => {
+  console.log('An error occurred while retrieving token. ', err);
+  // ...
+});
+
+Also import the getToken like this, 
+  import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-messaging.js";
+
+
+Replace the <YOUR_PUBLIC_VAPID_KEY_HERE> with the generated key
+
+Now we need to register a service worker before executing getToken()
+
+Now create a fcm-service-worker.js file and add the following code in the html
+
+      navigator.serviceWorker.register("/js/fcm-service-worker.js").then(registration => {
+        getToken(messaging, { 
+          ServiceWorkerRegistration: registration,
+          vapidKey: 'BJuTFtNM8Wm3OtTWE9UJ1IApt2sf6ytNGWVZQlWKn_CqdUE320KGFZZkDMsh0oupr_74mCCnmYq8-J8l2FUxiiE' }).then((currentToken) => {
+          if (currentToken) {
+            // Send the token to your server and update the UI if necessary
+            // ...
+          } else {
+            // Show permission request UI
+            console.log('No registration token available. Request permission to generate one.');
+            // ...
+          }
+        }).catch((err) => {
+          console.log('An error occurred while retrieving token. ', err);
+          // ...
+        });
+      })
+
+Now create service worker
+
+Service worker is a script that actually runs in a background and one of its feature is to recive and display push notifictaions
+
