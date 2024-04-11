@@ -31,39 +31,39 @@
       <script type="text/javascript" defer src="/js/heartbeat.js"></script>
 
       <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-        import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-messaging.js";
+      //   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+      //   import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-messaging.js";
 
-        const firebaseConfig = {
-          apiKey: "AIzaSyCr4GGI_zbzHvkmzyLNJklbiZZi3IZhem0",
-          authDomain: "nudge-f03c4.firebaseapp.com",
-          projectId: "nudge-f03c4",
-          storageBucket: "nudge-f03c4.appspot.com",
-          messagingSenderId: "254538726118",
-          appId: "1:254538726118:web:ebd270ea83622d635b1927"
-        };
+      //   const firebaseConfig = {
+      //     apiKey: "AIzaSyCr4GGI_zbzHvkmzyLNJklbiZZi3IZhem0",
+      //     authDomain: "nudge-f03c4.firebaseapp.com",
+      //     projectId: "nudge-f03c4",
+      //     storageBucket: "nudge-f03c4.appspot.com",
+      //     messagingSenderId: "254538726118",
+      //     appId: "1:254538726118:web:ebd270ea83622d635b1927"
+      //   };
       
-        const app = initializeApp(firebaseConfig);
-        const messaging = getMessaging(app);
+      //   const app = initializeApp(firebaseConfig);
+      //   const messaging = getMessaging(app);
 
-      navigator.serviceWorker.register("/js/fcm-service-worker.js").then(registration => {
-        getToken(messaging, { 
-          ServiceWorkerRegistration: registration,
-          vapidKey: 'BJuTFtNM8Wm3OtTWE9UJ1IApt2sf6ytNGWVZQlWKn_CqdUE320KGFZZkDMsh0oupr_74mCCnmYq8-J8l2FUxiiE' }).then((currentToken) => {
-          if (currentToken) {
-            console.log('currentToken ' + currentToken);
-            // Send the token to your server and update the UI if necessary
-            // ...
-          } else {
-            // Show permission request UI
-            console.log('No registration token available. Request permission to generate one.');
-            // ...
-          }
-        }).catch((err) => {
-          console.log('An error occurred while retrieving token. ', err);
-          // ...
-        });
-      })
+      // navigator.serviceWorker.register("/js/fcm-service-worker.js").then(registration => {
+      //   getToken(messaging, { 
+      //     ServiceWorkerRegistration: registration,
+      //     vapidKey: 'BJuTFtNM8Wm3OtTWE9UJ1IApt2sf6ytNGWVZQlWKn_CqdUE320KGFZZkDMsh0oupr_74mCCnmYq8-J8l2FUxiiE' }).then((currentToken) => {
+      //     if (currentToken) {
+      //       console.log('currentToken ' + currentToken);
+      //       // Send the token to your server and update the UI if necessary
+      //       // ...
+      //     } else {
+      //       // Show permission request UI
+      //       console.log('No registration token available. Request permission to generate one.');
+      //       // ...
+      //     }
+      //   }).catch((err) => {
+      //     console.log('An error occurred while retrieving token. ', err);
+      //     // ...
+      //   });
+      // })
 
       </script>
     </body>
