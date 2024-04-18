@@ -5,6 +5,7 @@ const path = require('path');
 const expressLayout = require('express-ejs-layouts');
 const passport = require('passport');
 const session = require('express-session');
+const http         = require('http');
 
 require('./lib/siteconfig');
 
@@ -72,10 +73,17 @@ app.use((err, req, res, next) => errorHandler.handle(err, req, res, next));
 
 
 /**
+ * -------------- SOCKET.io ----------------
+ */
+// Create HTTP server and configure Socket.IO
+const server = http.createServer(app);
+socketConfig.setupSocket(server);
+
+/**
  * -------------- SERVER ----------------
  */
 
 // Server listens on http://localhost:PORT
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`APP listening on port ${PORT}`);
 });

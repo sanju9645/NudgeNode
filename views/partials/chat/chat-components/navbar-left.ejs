@@ -1,22 +1,26 @@
 <div class="col-span-8 sm:col-span-4">
-  <div class="flex items-center">
-    <div class="block ltr:mr-2 rtl:ml-2 lg:hidden">
-        <a href="javascript: void(0);" class="p-2 text-gray-500 user-chat-remove text-16">
-            <i class="ri-arrow-left-s-line"></i>
-        </a>
+    <div class="flex items-center">
+        <div class="block ltr:mr-2 rtl:ml-2 lg:hidden">
+            <a href="/chat" class="p-2 text-gray-500 user-chat-remove text-16">
+                <i class="ri-arrow-left-s-line"></i>
+            </a>
+            <!-- <a href="javascript: void(0);" class="p-2 text-gray-500 user-chat-remove text-16">
+                <i class="ri-arrow-left-s-line"></i>
+            </a> -->
+        </div>
+
+        <div class="rtl:ml-3 ltr:mr-3">
+            <%- include(UtilsLib.actualEjsPath('components/profile-pic'), {user: {profilePicture: hearbeatUser.recipientProfilePicture, name: hearbeatUser.recipientName, isOnline: hearbeatUser.recipientIsOnline, _id: hearbeatUser.recipientId}}) %>
+        </div>
+
+        <div class="flex-grow overflow-hidden">
+            <h5 class="mb-0 truncate text-16 ltr:block rtl:hidden">
+                <a href="#" class="text-gray-800 dark:text-gray-50"><%- hearbeatUser.recipientName %></a>
+            </h5>
+            <h5 class="mb-0 truncate text-16 rtl:block ltr:hidden">
+                <i class="text-green-500 ltr:ml-1 rtl:mr-1 ri-record-circle-fill text-10 "></i>
+                <a href="#" class="text-gray-800 dark:text-gray-50"><%- hearbeatUser.recipientName %></a>
+            </h5>
+        </div>
     </div>
-    <div class="rtl:ml-3 ltr:mr-3">
-        <%- include(UtilsLib.actualEjsPath('components/profile-pic'), {user: {profilePicture: hearbeatUser.recipientProfilePicture, name: hearbeatUser.recipientName}}) %>
-    </div>
-    <div class="flex-grow overflow-hidden">
-        <h5 class="mb-0 truncate text-16 ltr:block rtl:hidden">
-            <a href="#" class="text-gray-800 dark:text-gray-50"><%- hearbeatUser.recipientName %></a>
-            <i class="text-green-500 ltr:ml-1 rtl:mr-1 ri-record-circle-fill text-10 "></i>
-        </h5>
-        <h5 class="mb-0 truncate text-16 rtl:block ltr:hidden">
-            <i class="text-green-500 ltr:ml-1 rtl:mr-1 ri-record-circle-fill text-10 "></i>
-            <a href="#" class="text-gray-800 dark:text-gray-50"><%- hearbeatUser.recipientName %></a>
-        </h5>
-    </div>
-  </div>
 </div>

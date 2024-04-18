@@ -1,7 +1,28 @@
-<% if (user?.profilePicture) { %>
-  <img src="<%- user.profilePicture %>" alt="" style="margin: 5px;" class="p-1 rounded-full h-10 w-10 flex justify-center items-center mx-auto bg-gray-50 dark:bg-zinc-700">
-<% } else { %>
-  <div style="background-color: rgb(168 162 158) !important; margin: 5px;" class="p-1 rounded-full h-9 w-9 flex justify-center items-center text-gray-700 dark:text-gray-50 leading-none">
-    <%= user.name.substring(0, 2).toUpperCase() %>
-  </div>
-<% } %>
+<div style="position: relative !important;">
+  <% if (user?.profilePicture) { %>
+    <img src="<%- user.profilePicture %>"
+      alt="Profile Image"
+      style="margin: 5px;" 
+      class="p-1 rounded-full h-10 w-10 flex justify-center items-center mx-auto bg-gray-50 dark:bg-zinc-700 user-profile-pic"
+      onerror="this.onerror=null; this.src='/img/profile-pic.jpeg';"
+    >
+  <% } else { %>
+    <div 
+      style="background-color: rgb(168 162 158) !important; margin: 5px;" 
+      class="p-1 rounded-full h-9 w-9 flex justify-center items-center text-gray-700 dark:text-gray-50 leading-none user-profile-pic"
+    >
+      <%= user.name.substring(0, 2).toUpperCase() %>
+    </div>
+  <% } %>
+
+  <% let statusClass = 'bg-yellow-500'; %>
+
+  <% if (user.isOnline == 1) { %>
+    <% statusClass = 'bg-green-500'; %>
+  <% } %>
+
+  <span 
+    class="absolute w-2.5 h-2.5 <%- statusClass %> border-2 border-white rounded-full top-7 ltr:right-1 rtl:left-1 dark:border-zinc-600" 
+    id="<%- user._id%>-status"
+  ></span>
+</div>

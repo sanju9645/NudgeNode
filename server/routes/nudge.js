@@ -15,4 +15,8 @@ router.get('/api/chat/:identifier', nudgeController.messages_get);
 
 router.post('/api/chat/send-message', nudgeController.send_message_post);
 
+router.get('/api/get-user-identifier', (req, res) => {
+  res.json({ identifier: req.userId });
+});
+
 module.exports = router;

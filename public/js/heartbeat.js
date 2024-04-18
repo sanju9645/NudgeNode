@@ -23,4 +23,3 @@ function logoutUser() {
 // Check token existence periodically, e.g., every 5 minutes
 setInterval(checkToken, 300000);
 // setInterval(checkToken, 60000);
-

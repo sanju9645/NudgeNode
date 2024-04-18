@@ -53,6 +53,10 @@ const userSchema = new mongoose.Schema({
   updatedAt: {
     type: Date,
     default: Date.now
+  },
+  isOnline:{
+    type: String,
+    default: '0'
   }
 });
 

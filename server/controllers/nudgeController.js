@@ -20,9 +20,7 @@ const chat_get = async (req, res) => {
 
     const groupedNames = await userLib.getUsersName(); 
     const heartbeats = await heartbeatOps.heartbeatsByUserId(user._id);
-    // console.log(heartbeats);
     const messages = await messageOps.messagesByUserIdentifier('65025737258102936502577258102940');
-    // testLib.insertMessageTest();
     locals = { ...locals, currentUser : user, groupedNames, heartbeats, req, messages, layout: './layouts/chatMarrowMeet' };
     res.render('chat', locals);
   });
@@ -34,8 +32,6 @@ const messages_get = async (req, res) => {
     const messages = await messageOps.messagesByUserIdentifier(req.params.identifier);
     const templatePath = UtilsLib.actualEjsPath('chat/chat-components/conversation');
     const hearbeatUser = await heartbeatOps.heartbeatByidentifierAndUserId(req.params.identifier, req.userId);
-
-    console.log(messages);
 
     ejs.renderFile(templatePath, { currentUser : user, messages, hearbeatUser }, (err, html) => {
       if (err) {

@@ -21,3 +21,44 @@
   --tw-bg-opacity: 1 !important;
   background-color: #272e35 !important;
 }
+
+#chat-page-parent {
+  height: 100vh !important;
+}
+
+#heartbeat-chat-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#convrsation-navbar-parent {
+  height: 100px;
+}
+
+#chat-parent-div-wrapper {
+  flex: auto;
+  overflow: auto;
+}
+
+#chat-input-section-parent-div {
+  height: 80px;
+}
+
+#heartbeat-chat-content {
+  display: flex;
+  height: 100vh;
+  /* align-items: center; */
+  justify-content: center;
+  width: 100%;
+}
+
+#heartbeat-joke-div {
+  height: fit-content;
+  width: fit-content;
+}
+
+.user-profile-pic {
+  max-width: fit-content !important;
+  min-width: 2.25rem !important;
+}
