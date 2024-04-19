@@ -6,37 +6,31 @@
 </div>
 <!-- end chat user head -->
 
-<div class="h-[80vh] p-4 lg:p-6" id="chat-parent-div-wrapper" data-simplebar>
-    <ul class="mb-0" id="chat-parent-ul-wrapper">
-        <% let currentDate = null; %>
-        <% const today = new Date(); %>
-        <% const todayFormatted = today.toISOString().split('T')[0]; %>
+<div class="h-[80vh] p-4 lg:p-6" id="chat-parent-div-wrapper" data-recipient-user-id="<%- hearbeatUser.recipientId %>">
+    <% let currentDate = null; %>
+    <% const today = new Date(); %>
+    <% const todayFormatted = today.toISOString().split('T')[0]; %>
+    <% messages.forEach(message => { %>
+        <% const messageDate = new Date(message.created); %>
+        <% const formattedDate = messageDate.toISOString().split('T')[0]; %>
 
-        <% messages.forEach(message => { %>
-            <% const messageDate = new Date(message.created); %>
-            <% const formattedDate = messageDate.toISOString().split('T')[0]; %>
+        <% if (currentDate != formattedDate) { %>
+            <% currentDate = formattedDate %>
+            <% let date = currentDate; %>
 
-            <% if (currentDate != formattedDate) { %>
-                <% currentDate = formattedDate %>
-                <% let date = currentDate; %>
-
-                <% if (currentDate == todayFormatted) { %>
-                    <% date = 'Today'; %>
-                <% } %>
-
-                <%- include('./conversation/date.ejs', {date}) %>
+            <% if (currentDate == todayFormatted) { %>
+                <% date = 'Today'; %>
             <% } %>
 
-            <% if (message.senderId.toString() == currentUser._id.toString()) { %>
-                <%- include('./conversation/own-message.ejs', {message, hearbeatUser}) %>
-            <% } else { %>
-                <%- include('./conversation/recipient-message.ejs', {message, hearbeatUser}) %>
-            <% } %>
-        <% }); %>
+            <%- include('./conversation/date.ejs', {date}) %>
+        <% } %>
 
-
-        <%- include('./conversation/typing.ejs', {hearbeatUser}) %>
-    </ul>
+        <% if (message.senderId.toString() == currentUser._id.toString()) { %>
+            <%- include('./conversation/own-message.ejs', {message, hearbeatUser}) %>
+        <% } else { %>
+            <%- include('./conversation/recipient-message.ejs', {message, hearbeatUser}) %>
+        <% } %>
+    <% }); %>
 </div>
 
 <!-- start chat input section -->

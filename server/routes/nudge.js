@@ -11,6 +11,8 @@ router.get('/home', nudgeController.home_get);
 router.get('/chat', nudgeController.chat_get);
 
 // router.get('/chat/*', nudgeController.chat_get);
+router.get('/api/chat/get-message-templates', nudgeController.message_templates_get);
+
 router.get('/api/chat/:identifier', nudgeController.messages_get);
 
 router.post('/api/chat/send-message', nudgeController.send_message_post);

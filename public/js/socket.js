@@ -9,9 +9,10 @@ const getIdentifer = async () => {
 }
 
 (async () => {
+  const [ownMsgTemplate, recipientMsgTemplate] = await getMessageTemplates();
+
   const identifier = await getIdentifer();
-  const senderId = identifier;
-  let recipientId;
+  window.senderId = identifier;
 
   const socket = io('/user-namespace', {
     auth: {
@@ -31,7 +32,8 @@ const getIdentifer = async () => {
     $('#'+data.userId+'-status').addClass('bg-yellow-500');
   });
 
+  // handling new messages
+  socket.on('newMessage', (newMessage) => {
+    updateNewMessageTemplates(recipientMsgTemplate, newMessage);
+  });
 })();
-
-
-
