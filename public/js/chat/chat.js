@@ -23,7 +23,7 @@ window.fmtMongoDate = (date) => {
 
 window.updateNewMessageTemplates = async (msgTemplate, newMessage, msgEvent) => {
   const chatWrapper = document.getElementById('chat-parent-div-wrapper');
-  
+
   if (chatWrapper) {
     const recipientUserId = chatWrapper.getAttribute('data-recipient-user-id');
     let msgSenderId = recipientUserId;
@@ -81,6 +81,8 @@ if (document.querySelector(".chat-user-list")) {
       .then(response => response.text())
       .then(data => {
         document.getElementById('heartbeat-chat-content').innerHTML = data;
+        document.querySelectorAll('.hearbeat-contact').forEach(cnt => cnt.classList.remove('active'));
+        document.getElementById(item.getAttribute('id')).classList.add('active');
       })
       .then(() => {
         chatScroll();
