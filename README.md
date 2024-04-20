@@ -196,3 +196,60 @@ Now create service worker
 
 Service worker is a script that actually runs in a background and one of its feature is to recive and display push notifictaions
 
+
+
+
+
+
+
+
+.env file
+
+PORT=3000
+
+MONGODB_URI=mongodb+srv://BurnBitBistro:thisistopsecret@cluster0.ymo9chb.mongodb.net/nudge
+
+ADMIN_EMAILS=burnbitbistro@gmail.com
+
+# Auth email credentials
+AUTH_EMAIL=burnbitbistro@gmail.com
+AUTH_PASS=strongpassword
+
+HOME_URL=http://localhost:3000/
+
+
+GOOGLE_AUTH_CLIENT_ID = 9645-abc.apps.googleusercontent.com
+GOOGLE_AUTH_CLIENT_SECRET = DCFV-HdJdbvdvvjvhKJDdf
+
+EXPRESS_SESSION_SECRET = STRONGSECRET
+
+JWT_SECRET = gF4&h9645JL!pR3$WzZ7*E^9645+i%C
+
+# To change the background image of login/index page paste the image in '/img/login/' and rename to 'index.jpeg'
+# /img/login/index.jpeg
+
+PORTAL_SITE_NAME=Nudge
+
+# use tailwind css colors
+PORTAL_PAGE_MAIN_COLOR=gray
+PORTAL_BOX_MAIN_HEADING_COLOR=purple
+PORTAL_BOX_SUB_HEADING_COLOR=purple
+PORTAL_FORM_LABEL_COLOR=purple
+PORTAL_FORM_BUTTON_COLOR=purple
+PORTAL_QUOTE_TEXT_COLOR=white
+PORTAL_SITE_NAME_TEXT_COLOR=white
+PORTAL_FIELD_BORDER_COLOR=purple
+
+# gray
+# PORTAL_BOX_SUB_HEADING_COLOR=gray
+# PORTAL_FORM_LABEL_COLOR=gray
+
+
+
+
+
+
+
+# Firebase Cloud Messaging
+
+FCM_PUBLIC_VAPID_KEY=FCMKEY-J8l2FUxiiE
